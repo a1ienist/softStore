@@ -37,7 +37,7 @@ positionFormButton.addEventListener('click', async () => {
         }
     } catch (err) {
         console.log('err', err);
-        const messageWrapper = document.getElementById("response-message"); // Здесь исправлен идентификатор
+        const messageWrapper = document.getElementById("response-message"); 
         messageWrapper.innerHTML = "Position was NOT inserted, ERROR";
     }
 });

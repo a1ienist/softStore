@@ -6,12 +6,19 @@ const getAllSoft = async () => {
         const soft = await response.json();
 
         soft.forEach((position) => {
+            const wrapper = document.createElement('a');
+            wrapper.setAttribute('class', 'position-wrapper');
+            wrapper.href = "./soft.html";
+            wrapper.addEventListener('click', ()=>{
+                console.log('sdadsa');
+                localStorage.setItem("positionID", position.id);
+        });
+
             const image = document.createElement('img');
             image.setAttribute('class', 'position-image');
             image.src = position.img_url;
 
-            const wrapper = document.createElement('div');
-            wrapper.setAttribute('class', 'position-wrapper');
+
 
             const title = document.createElement('h1');
             title.innerHTML = position.title;
@@ -23,7 +30,7 @@ const getAllSoft = async () => {
             wrapper.appendChild(title);
             wrapper.appendChild(description);
 
-            softWrapper.appendChild(wrapper); 
+            softWrapper.appendChild(wrapper);
         });
     } catch (error) {
         console.log('Error:', error);
